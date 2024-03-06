@@ -1,7 +1,6 @@
 name: Deploy Backend to Avidly Preview ECS
 
 on:
-  workflow_dispatch:
   push:
     branches: ["preview"]
     paths:
