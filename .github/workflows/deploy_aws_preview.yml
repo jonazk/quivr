@@ -78,7 +78,7 @@ jobs:
       matrix:
         include:
           - name: "quivr-backend"
-            service: "quivr-preview"
+            service: "quivr-run-preview"
             task_definition: ".aws/task_definition_quivr_preview.json"
             container: "quivr-preview"
 
