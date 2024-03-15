@@ -25,7 +25,8 @@ const SelectedChatPage = (): JSX.Element => {
   const { getRootProps } = useCustomDropzone();
   const { isMobile } = useDevice();
 
-  const { setShouldDisplayFeedCard } = useKnowledgeToFeedContext();
+  const { setShouldDisplayFeedCard, shouldDisplayFeedCard } =
+    useKnowledgeToFeedContext();
   const { setIsBrainCreationModalOpened } = useBrainCreationContext();
 
   const { currentBrain, setCurrentBrainId } = useBrainContext();
@@ -77,12 +78,11 @@ const SelectedChatPage = (): JSX.Element => {
   return (
     <div className={styles.main_container}>
       <div className={styles.page_header}>
-        <PageHeader iconName="chat" label="Chat" buttons={buttons} />
+        <PageHeader iconName="chat" label="Thread" buttons={buttons} />
       </div>
       <div
         className={styles.chat_page_container}
-        data-testid="chat-page"
-        {...getRootProps()}
+        {...(shouldDisplayFeedCard ? {} : getRootProps())}
       >
         <div
           className={cn(

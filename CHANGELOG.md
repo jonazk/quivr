@@ -1,5 +1,131 @@
 # Changelog
 
+## 0.0.224 (2024-03-15)
+
+## What's Changed
+* feat(frontend): add discord link by @Zewed in https://github.com/QuivrHQ/quivr/pull/2343
+* fix(frontend): upgrade to plus  by @Zewed in https://github.com/QuivrHQ/quivr/pull/2346
+
+
+**Full Changelog**: https://github.com/QuivrHQ/quivr/compare/v0.0.223...v0.0.224
+
+## 0.0.223 (2024-03-13)
+
+## What's Changed
+* chore: update packages backend by @StanGirard in https://github.com/QuivrHQ/quivr/pull/2339
+* feat: Add optional fields to UserIdentity and UserUpdatableProperties by @StanGirard in https://github.com/QuivrHQ/quivr/pull/2341
+
+
+**Full Changelog**: https://github.com/QuivrHQ/quivr/compare/v0.0.222...v0.0.223
+
+## 0.0.222 (2024-03-09)
+
+## What's Changed
+* feat: Update langchain.prompts and langchain_core.messages modules by @StanGirard in https://github.com/QuivrHQ/quivr/pull/2326
+* feat(frontend): social buttons by @Zewed in https://github.com/QuivrHQ/quivr/pull/2325
+* fix(frontend): upgrade to plus button by @Zewed in https://github.com/QuivrHQ/quivr/pull/2324
+* fix(frontend): maximum amount of brains reached by @Zewed in https://github.com/QuivrHQ/quivr/pull/2323
+
+
+**Full Changelog**: https://github.com/QuivrHQ/quivr/compare/v0.0.221...v0.0.222
+
+## 0.0.221 (2024-03-07)
+
+## What's Changed
+* feat: seed updated by @StanGirard in https://github.com/QuivrHQ/quivr/pull/2313
+* fix(frontend): allow model change by @Zewed in https://github.com/QuivrHQ/quivr/pull/2317
+* fix(frontend): mention list by @Zewed in https://github.com/QuivrHQ/quivr/pull/2315
+* fix(frontend): studio to brain studio by @Zewed in https://github.com/QuivrHQ/quivr/pull/2316
+* feat(frontend): add help tooltip for model selection by @Zewed in https://github.com/QuivrHQ/quivr/pull/2318
+* fix(frontend): page header studio to brain studio by @Zewed in https://github.com/QuivrHQ/quivr/pull/2319
+
+
+**Full Changelog**: https://github.com/QuivrHQ/quivr/compare/v0.0.220...v0.0.221
+
+## 0.0.220 (2024-03-06)
+
+## What's Changed
+* fix(frontend): brain name by @Zewed in https://github.com/QuivrHQ/quivr/pull/2311
+
+
+**Full Changelog**: https://github.com/QuivrHQ/quivr/compare/v0.0.219...v0.0.220
+
+## 0.0.219 (2024-03-06)
+
+## What's Changed
+* feat: Update to newest version of litellm by @StanGirard in https://github.com/QuivrHQ/quivr/pull/2307
+* fix(frontend): small renaiming chat to thread by @Zewed in https://github.com/QuivrHQ/quivr/pull/2306
+* feat(frontend): brain Catalogue by @Zewed in https://github.com/QuivrHQ/quivr/pull/2303
+* feat(frontend): 404 redirection by @Zewed in https://github.com/QuivrHQ/quivr/pull/2309
+* fix(frontend): old brain legacy by @Zewed in https://github.com/QuivrHQ/quivr/pull/2310
+
+
+**Full Changelog**: https://github.com/QuivrHQ/quivr/compare/v0.0.218...v0.0.219
+
+## 0.0.218 (2024-03-05)
+
+## What's Changed
+* feat: doc as integration by @StanGirard in https://github.com/QuivrHQ/quivr/pull/2297
+* fix(rag): add api_base by @niels-garve in https://github.com/QuivrHQ/quivr/pull/2289
+* fix(frontend): login bug by @Zewed in https://github.com/QuivrHQ/quivr/pull/2300
+
+## New Contributors
+* @niels-garve made their first contribution in https://github.com/QuivrHQ/quivr/pull/2289
+
+**Full Changelog**: https://github.com/QuivrHQ/quivr/compare/v0.0.217...v0.0.218
+
+## 0.0.217 (2024-03-04)
+
+## What's Changed
+* fix(frontend): fix home page redirection by @Zewed in https://github.com/QuivrHQ/quivr/pull/2295
+
+
+**Full Changelog**: https://github.com/QuivrHQ/quivr/compare/v0.0.216...v0.0.217
+
+## 0.0.216 (2024-03-04)
+
+## What's Changed
+* feat: Update chunk_size in File model by @StanGirard in https://github.com/QuivrHQ/quivr/pull/2281
+* fix(frontend): double file upload on drag and drop by @Zewed in https://github.com/QuivrHQ/quivr/pull/2284
+* fix(frontend): click anywhere on drop zone to upload file by @Zewed in https://github.com/QuivrHQ/quivr/pull/2285
+* fix(frontend): smalls on thread section by @Zewed in https://github.com/QuivrHQ/quivr/pull/2286
+* fix(frontend): remove tests by @Zewed in https://github.com/QuivrHQ/quivr/pull/2287
+* feat(frontend): better UI/UX on select brain by @Zewed in https://github.com/QuivrHQ/quivr/pull/2288
+* feat(frontend): add brain icon on brain list by @Zewed in https://github.com/QuivrHQ/quivr/pull/2292
+* fix(frontend): whitespace on firefox by @Zewed in https://github.com/QuivrHQ/quivr/pull/2293
+* fix(frontend): remove unused stuff by @Zewed in https://github.com/QuivrHQ/quivr/pull/2282
+
+
+**Full Changelog**: https://github.com/QuivrHQ/quivr/compare/v0.0.215...v0.0.216
+
+## 0.0.215 (2024-03-01)
+
+## What's Changed
+* fix(frontend): message info box  by @Zewed in https://github.com/QuivrHQ/quivr/pull/2277
+* fix(frontend): see knowledge in custom brains by @Zewed in https://github.com/QuivrHQ/quivr/pull/2278
+* fix(frontend): fix disabled knwoledge tab by @Zewed in https://github.com/QuivrHQ/quivr/pull/2280
+
+
+**Full Changelog**: https://github.com/QuivrHQ/quivr/compare/v0.0.214...v0.0.215
+
+## 0.0.214 (2024-02-29)
+
+## What's Changed
+* fix(frontend): revamp quivr studio by @Zewed in https://github.com/QuivrHQ/quivr/pull/2274
+* fix(frontend): zindex and radius on single selector component by @Zewed in https://github.com/QuivrHQ/quivr/pull/2276
+
+
+**Full Changelog**: https://github.com/QuivrHQ/quivr/compare/v0.0.213...v0.0.214
+
+## 0.0.213 (2024-02-28)
+
+## What's Changed
+* feat(notion): added custom integration by @StanGirard in https://github.com/QuivrHQ/quivr/pull/2268
+* feat: Remove constraints and add foreign key references to brain tables by @StanGirard in https://github.com/QuivrHQ/quivr/pull/2273
+
+
+**Full Changelog**: https://github.com/QuivrHQ/quivr/compare/v0.0.212...v0.0.213
+
 ## 0.0.212 (2024-02-26)
 
 ## What's Changed

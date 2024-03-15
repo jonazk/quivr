@@ -1,15 +1,24 @@
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
-import { BsArrowRightShort, BsChatLeftText } from "react-icons/bs";
+import {
+  BsArrowRightShort,
+  BsChatLeftText,
+  BsTextParagraph,
+} from "react-icons/bs";
 import { CgSoftwareDownload } from "react-icons/cg";
 import { CiFlag1 } from "react-icons/ci";
 import {
   FaCheck,
   FaCheckCircle,
+  FaDiscord,
   FaFileAlt,
+  FaGithub,
   FaKey,
+  FaLinkedin,
   FaRegFileAlt,
+  FaRegKeyboard,
   FaRegStar,
   FaRegUserCircle,
+  FaTwitter,
   FaUnlock,
 } from "react-icons/fa";
 import { FaInfo } from "react-icons/fa6";
@@ -22,9 +31,13 @@ import {
 } from "react-icons/io";
 import {
   IoArrowUpCircleOutline,
+  IoCloudDownloadOutline,
   IoHomeOutline,
   IoSettingsSharp,
+  IoShareSocial,
+  IoWarningOutline,
 } from "react-icons/io5";
+import { LiaRobotSolid } from "react-icons/lia";
 import { IconType } from "react-icons/lib";
 import {
   LuBrain,
@@ -42,6 +55,7 @@ import {
   MdDeleteOutline,
   MdDynamicFeed,
   MdHistory,
+  MdLink,
   MdOutlineModeEditOutline,
   MdUploadFile,
 } from "react-icons/md";
@@ -65,6 +79,8 @@ export const iconList: { [name: string]: IconType } = {
   copy: LuCopy,
   custom: MdDashboardCustomize,
   delete: MdDeleteOutline,
+  discord: FaDiscord,
+  download: IoCloudDownloadOutline,
   edit: MdOutlineModeEditOutline,
   email: MdAlternateEmail,
   feed: MdDynamicFeed,
@@ -72,24 +88,33 @@ export const iconList: { [name: string]: IconType } = {
   fileSelected: FaFileAlt,
   flag: CiFlag1,
   followUp: IoArrowUpCircleOutline,
+  github: FaGithub,
   graph: VscGraph,
-  hastag: RiHashtag,
+  hashtag: RiHashtag,
   help: IoIosHelpCircleOutline,
   history: MdHistory,
   home: IoHomeOutline,
   info: FaInfo,
   key: FaKey,
+  link: MdLink,
+  linkedin: FaLinkedin,
   loader: AiOutlineLoading3Quarters,
   logout: IoMdLogOut,
   options: SlOptions,
+  paragraph: BsTextParagraph,
+  prompt: FaRegKeyboard,
   redirection: BsArrowRightShort,
+  robot: LiaRobotSolid,
   search: LuSearch,
   settings: IoSettingsSharp,
+  share: IoShareSocial,
   software: CgSoftwareDownload,
   star: FaRegStar,
+  twitter: FaTwitter,
   unlock: FaUnlock,
   upload: FiUpload,
   uploadFile: MdUploadFile,
   user: FaRegUserCircle,
+  warning: IoWarningOutline,
   website: TbNetwork,
 };

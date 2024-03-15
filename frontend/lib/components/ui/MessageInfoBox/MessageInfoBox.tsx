@@ -6,12 +6,12 @@ import styles from "./MessageInfoBox.module.scss";
 import { Icon } from "../Icon/Icon";
 
 export type MessageInfoBoxProps = {
-  content: string;
+  children: React.ReactNode;
   type: "info" | "success" | "warning" | "error";
 };
 
 export const MessageInfoBox = ({
-  content,
+  children,
   type,
 }: MessageInfoBoxProps): JSX.Element => {
   const getIconProps = (): {
@@ -20,11 +20,13 @@ export const MessageInfoBox = ({
   } => {
     switch (type) {
       case "info":
-        return { iconName: "info", iconColor: "grey" };
+        return { iconName: "info", iconColor: "primary" };
       case "success":
         return { iconName: "check", iconColor: "success" };
+      case "warning":
+        return { iconName: "warning", iconColor: "warning" };
       default:
-        return { iconName: "info", iconColor: "grey" };
+        return { iconName: "info", iconColor: "primary" };
     }
   };
 
@@ -35,7 +37,7 @@ export const MessageInfoBox = ({
         size="normal"
         color={getIconProps().iconColor}
       />
-      <span>{content}</span>
+      {children}
     </div>
   );
 };
