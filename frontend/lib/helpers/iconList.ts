@@ -1,4 +1,5 @@
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { BiCoin } from "react-icons/bi";
 import {
   BsArrowRightShort,
   BsChatLeftText,
@@ -66,6 +67,8 @@ import {
   MdHistory,
   MdLink,
   MdOutlineModeEditOutline,
+  MdUnfoldLess,
+  MdUnfoldMore,
   MdUploadFile,
 } from "react-icons/md";
 import { PiOfficeChairFill } from "react-icons/pi";
@@ -90,6 +93,7 @@ export const iconList: { [name: string]: IconType } = {
   chevronLeft: LuChevronLeft,
   chevronRight: LuChevronRight,
   close: IoMdClose,
+  coin: BiCoin,
   copy: LuCopy,
   custom: MdDashboardCustomize,
   delete: MdDeleteOutline,
@@ -101,6 +105,7 @@ export const iconList: { [name: string]: IconType } = {
   file: FaRegFileAlt,
   fileSelected: FaFileAlt,
   flag: CiFlag1,
+  fold: MdUnfoldLess,
   followUp: IoArrowUpCircleOutline,
   github: FaGithub,
   goal: LuGoal,
@@ -133,6 +138,7 @@ export const iconList: { [name: string]: IconType } = {
   thumbsDown: FaRegThumbsDown,
   thumbsUp: FaRegThumbsUp,
   twitter: FaTwitter,
+  unfold: MdUnfoldMore,
   unlock: FaUnlock,
   upload: FiUpload,
   uploadFile: MdUploadFile,
