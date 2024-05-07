@@ -1,5 +1,40 @@
 # Changelog
 
+## 0.0.247 (2024-05-07)
+
+## What's Changed
+* feat(frontend): add notifications for document uploads by @Zewed in https://github.com/QuivrHQ/quivr/pull/2549
+* Update install.mdx by @dazeb in https://github.com/QuivrHQ/quivr/pull/2552
+* fix(frontend): fix notifications issues by @Zewed in https://github.com/QuivrHQ/quivr/pull/2551
+* chore(ci): Update PR title linting workflow by @StanGirard in https://github.com/QuivrHQ/quivr/pull/2553
+
+## New Contributors
+* @dazeb made their first contribution in https://github.com/QuivrHQ/quivr/pull/2552
+
+**Full Changelog**: https://github.com/QuivrHQ/quivr/compare/v0.0.246...v0.0.247
+
+## 0.0.246 (2024-05-04)
+
+## What's Changed
+* Enable Porter Application theodo-backend by @porter-deployment-app in https://github.com/QuivrHQ/quivr/pull/2537
+* Enable Porter Application theodo-frontend by @porter-deployment-app in https://github.com/QuivrHQ/quivr/pull/2538
+* Add config parameter to conversational_qa_chain by @StanGirard in https://github.com/QuivrHQ/quivr/pull/2540
+* feat(notion): update doc by @StanGirard in https://github.com/QuivrHQ/quivr/pull/2542
+
+
+**Full Changelog**: https://github.com/QuivrHQ/quivr/compare/v0.0.245...v0.0.246
+
+## 0.0.245 (2024-05-03)
+
+## What's Changed
+* feat(user): Delete User Data from frontend by @Zewed in https://github.com/QuivrHQ/quivr/pull/2476
+* feat(backend): Add a pre_pring on Connection polling to handle disconnection by @dmourot in https://github.com/QuivrHQ/quivr/pull/2534
+* feat(llama-parse): improve prompt by @StanGirard in https://github.com/QuivrHQ/quivr/pull/2535
+* feat(brain): Add ProxyBrain integration by @StanGirard in https://github.com/QuivrHQ/quivr/pull/2536
+
+
+**Full Changelog**: https://github.com/QuivrHQ/quivr/compare/v0.0.244...v0.0.245
+
 ## 0.0.244 (2024-05-02)
 
 ## What's Changed
