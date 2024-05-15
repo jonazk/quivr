@@ -33,6 +33,8 @@ models_supporting_function_calls = [
     "gpt-3.5-turbo-0613",
     "gpt-4-0125-preview",
     "gpt-3.5-turbo",
+    "gpt-4-turbo",
+    "gpt-4o",
 ]
 
 
