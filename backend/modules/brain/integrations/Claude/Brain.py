@@ -8,6 +8,7 @@ from modules.brain.knowledge_brain_qa import KnowledgeBrainQA
 from modules.chat.dto.chats import ChatQuestion
 
 
+
 class ClaudeBrain(KnowledgeBrainQA):
     """
     ClaudeBrain integrates with Claude model to provide conversational AI capabilities.
@@ -51,6 +52,7 @@ class ClaudeBrain(KnowledgeBrainQA):
                 (
                     "system",
                     "You are Claude powered by Quivr. You are an assistant. {custom_personality}",
+
                 ),
                 MessagesPlaceholder(variable_name="chat_history"),
                 ("human", "{question}"),
