@@ -1,5 +1,76 @@
 # Changelog
 
+## 0.0.272 (2024-06-24)
+
+## What's Changed
+* fix(frontend): send empty sync is not allowed by @Zewed in https://github.com/QuivrHQ/quivr/pull/2716
+* feat: Improve efficiency of syncing stripe by @StanGirard in https://github.com/QuivrHQ/quivr/pull/2719
+
+
+**Full Changelog**: https://github.com/QuivrHQ/quivr/compare/v0.0.271...v0.0.272
+
+## 0.0.271 (2024-06-24)
+
+## What's Changed
+* fix: check user premium upsert by @AmineDiro in https://github.com/QuivrHQ/quivr/pull/2714
+
+
+**Full Changelog**: https://github.com/QuivrHQ/quivr/compare/v0.0.270...v0.0.271
+
+## 0.0.270 (2024-06-24)
+
+## What's Changed
+* fix(frontend): small rephrase by @Zewed in https://github.com/QuivrHQ/quivr/pull/2699
+* feat(frontend): table markdown by @Zewed in https://github.com/QuivrHQ/quivr/pull/2702
+* Enable Porter Application raise by @porter-deployment-app in https://github.com/QuivrHQ/quivr/pull/2705
+* Enable Porter Application raise-frontend by @porter-deployment-app in https://github.com/QuivrHQ/quivr/pull/2706
+* chore: Remove Porter stack deployment workflows for cherry-pick-backend and cherry-pick-frontend by @StanGirard in https://github.com/QuivrHQ/quivr/pull/2707
+* fix(frontend): 25 instead of 100 by @Zewed in https://github.com/QuivrHQ/quivr/pull/2708
+* fix(frontend): remove double scss class by @elazarnaaman in https://github.com/QuivrHQ/quivr/pull/2704
+* fix(frontend): documents before connections by @Zewed in https://github.com/QuivrHQ/quivr/pull/2711
+* feat(frontend): brain studio interface by @Zewed in https://github.com/QuivrHQ/quivr/pull/2712
+
+
+**Full Changelog**: https://github.com/QuivrHQ/quivr/compare/v0.0.269...v0.0.270
+
+## 0.0.269 (2024-06-20)
+
+## What's Changed
+* feat: Add Microsoft Identity Association JSON file by @StanGirard in https://github.com/QuivrHQ/quivr/pull/2697
+
+
+**Full Changelog**: https://github.com/QuivrHQ/quivr/compare/v0.0.268...v0.0.269
+
+## 0.0.268 (2024-06-18)
+
+## What's Changed
+* fix(frontend): rephrase unpaid to free by @Zewed in https://github.com/QuivrHQ/quivr/pull/2679
+* feat(frontend): set from connections by default in knowledge to feed by @Zewed in https://github.com/QuivrHQ/quivr/pull/2680
+* feat(frontend): rephrase from Url to from Website's page by @Zewed in https://github.com/QuivrHQ/quivr/pull/2683
+* feat(frontend): new chat interface by @Zewed in https://github.com/QuivrHQ/quivr/pull/2687
+* fix(frontend): next step impossible if no knowledge when creating brain if no onboarded by @Zewed in https://github.com/QuivrHQ/quivr/pull/2688
+* feat(turbopack): Implement turbo pack compiler by @StanGirard in https://github.com/QuivrHQ/quivr/pull/2685
+* fix(frontend): rephrase thoughts button title by @Zewed in https://github.com/QuivrHQ/quivr/pull/2689
+
+
+**Full Changelog**: https://github.com/QuivrHQ/quivr/compare/v0.0.267...v0.0.268
+
+## 0.0.267 (2024-06-14)
+
+## What's Changed
+* fix(frontend): scroll modal payment by @Zewed in https://github.com/QuivrHQ/quivr/pull/2675
+
+
+**Full Changelog**: https://github.com/QuivrHQ/quivr/compare/v0.0.266...v0.0.267
+
+## 0.0.266 (2024-06-13)
+
+## What's Changed
+* fix: Add logic to filter active subscriptions in check_if_is_premium_user function by @StanGirard in https://github.com/QuivrHQ/quivr/pull/2673
+
+
+**Full Changelog**: https://github.com/QuivrHQ/quivr/compare/v0.0.265...v0.0.266
+
 ## 0.0.265 (2024-06-13)
 
 ## What's Changed
