@@ -1,14 +1,13 @@
-@use "@/styles/Colors.module.scss";
-@use "@/styles/Radius.module.scss";
-@use "@/styles/Spacings.module.scss";
-@use "@/styles/Typography.module.scss";
-@use "@/styles/Transitions.module.scss";
+@use "styles/Radius.module.scss";
+@use "styles/Spacings.module.scss";
+@use "styles/Transitions.module.scss";
+@use "styles/Typography.module.scss";
 
 .foldable_section_wrapper {
   display: flex;
   flex-direction: column;
   border-radius: Radius.$normal;
-  border: 1px dashed Colors.$lighter-grey;
+  border: 1px dashed var(--border-0);
   overflow: hidden;
   font-size: Typography.$small;
 
@@ -16,7 +15,7 @@
     overflow: hidden;
     transition: max-height 0.3s Transitions.$easeOutBack;
   }
-  
+
   .contentCollapsed {
     max-height: 0;
   }
@@ -44,19 +43,25 @@
     }
 
     &:hover {
-      background-color: Colors.$lightest-black;
+      background-color: var(--background-3);
+
+      .header_left {
+        .header_title {
+          color: var(--primary-0);
+        }
+      }
     }
   }
-  
-  .iconRotate {
+
+  .icon_rotate {
     transition: transform 0.3s Transitions.$easeOutBack;
   }
 
-  .iconRotateDown {
+  .icon_rotate_down {
     transform: rotate(0deg);
   }
 
-  .iconRotateRight {
-    transform: rotate(-90deg);
+  .icon_rotate_right {
+    transform: rotate(90deg);
   }
 }

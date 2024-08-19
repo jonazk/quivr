@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 
 import { Modal } from "@/lib/components/ui/Modal/Modal";
-import QuivrButton from "@/lib/components/ui/QuivrButton/QuivrButton";
+import { QuivrButton } from "@/lib/components/ui/QuivrButton/QuivrButton";
 
 type DeleteOrUnsubscribeConfirmationModalProps = {
   isOpen: boolean;
@@ -29,6 +29,7 @@ export const DeleteOrUnsubscribeConfirmationModal = ({
       }
       isOpen={isOpen}
       setOpen={setOpen}
+      size="auto"
       Trigger={<div />}
       CloseTrigger={<div />}
     >

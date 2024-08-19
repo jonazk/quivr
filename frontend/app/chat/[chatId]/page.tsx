@@ -1,29 +1,25 @@
 "use client";
 
-import { UUID } from "crypto";
 import { useEffect } from "react";
 
 import { AddBrainModal } from "@/lib/components/AddBrainModal";
 import { useBrainCreationContext } from "@/lib/components/AddBrainModal/brainCreation-provider";
-import PageHeader from "@/lib/components/PageHeader/PageHeader";
+import { PageHeader } from "@/lib/components/PageHeader/PageHeader";
 import { UploadDocumentModal } from "@/lib/components/UploadDocumentModal/UploadDocumentModal";
 import { useChatContext } from "@/lib/context";
 import { useBrainContext } from "@/lib/context/BrainProvider/hooks/useBrainContext";
 import { useKnowledgeToFeedContext } from "@/lib/context/KnowledgeToFeedProvider/hooks/useKnowledgeToFeedContext";
-import { useDevice } from "@/lib/hooks/useDevice";
 import { useCustomDropzone } from "@/lib/hooks/useDropzone";
 import { ButtonType } from "@/lib/types/QuivrButton";
 import { cn } from "@/lib/utils";
 
 import { ActionsBar } from "./components/ActionsBar";
 import { ChatDialogueArea } from "./components/ChatDialogueArea/ChatDialogue";
-import Sources from "./components/Sources/Sources";
 import { useChatNotificationsSync } from "./hooks/useChatNotificationsSync";
 import styles from "./page.module.scss";
 
 const SelectedChatPage = (): JSX.Element => {
   const { getRootProps } = useCustomDropzone();
-  const { isMobile } = useDevice();
 
   const { setShouldDisplayFeedCard, shouldDisplayFeedCard } =
     useKnowledgeToFeedContext();
@@ -31,7 +27,6 @@ const SelectedChatPage = (): JSX.Element => {
 
   const { currentBrain, setCurrentBrainId } = useBrainContext();
   const { messages } = useChatContext();
-  const { sourcesMessageIndex, setSourcesMessageIndex } = useChatContext();
 
   useChatNotificationsSync();
 
@@ -65,15 +60,14 @@ const SelectedChatPage = (): JSX.Element => {
 
   useEffect(() => {
     if (!currentBrain && messages.length > 0) {
-      setCurrentBrainId(messages[messages.length - 1].brain_id as UUID);
+      const lastMessage = messages[messages.length - 1];
+      setCurrentBrainId(
+        lastMessage.brain_id
+          ? lastMessage.brain_id
+          : lastMessage.metadata?.metadata_model?.brain_id ?? null
+      );
     }
   }, [messages]);
-
-  useEffect(() => {
-    return () => {
-      setSourcesMessageIndex(undefined);
-    };
-  }, []);
 
   return (
     <div className={styles.main_container}>
@@ -99,11 +93,6 @@ const SelectedChatPage = (): JSX.Element => {
             <ActionsBar />
           </div>
         </div>
-        {!isMobile && sourcesMessageIndex !== undefined && (
-          <div className={styles.sources_wrapper}>
-            <Sources />
-          </div>
-        )}
         <UploadDocumentModal />
         <AddBrainModal />
       </div>

@@ -43,7 +43,7 @@ export const ModelSelection = (props: ModelSelectionProps): JSX.Element => {
             void handleSubmit(false);
           }}
           selectedOption={{ value: model, label: model }}
-          placeholder="hey"
+          placeholder="Select a model"
           iconName="robot"
         />
       </fieldset>
@@ -59,7 +59,7 @@ export const ModelSelection = (props: ModelSelectionProps): JSX.Element => {
             type="range"
             min="10"
             max={defineMaxTokens(model)}
-            value={maxTokens}
+            value={maxTokens || ""}
             disabled={!hasEditRights}
             {...register("maxTokens")}
           />

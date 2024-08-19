@@ -1,5 +1,11 @@
-@use "@/styles/Colors.module.scss";
-@use "@/styles/IconSizes.module.scss";
+@use "styles/IconSizes.module.scss";
+
+.tiny {
+  min-width: IconSizes.$tiny;
+  min-height: IconSizes.$tiny;
+  max-width: IconSizes.$tiny;
+  max-height: IconSizes.$tiny;
+}
 
 .small {
   min-width: IconSizes.$small;
@@ -30,55 +36,67 @@
 }
 
 .black {
-  color: Colors.$black;
+  color: var(--icon-3);
 
   &.hovered {
-    color: Colors.$primary;
+    color: var(--primary-0);
   }
 }
 
 .dark-grey {
-  color: Colors.$dark-grey;
+  color: var(--icon-2);
 }
 
 .grey {
-  color: Colors.$normal-grey;
+  color: var(--icon-1);
 }
 
 .primary {
-  color: Colors.$primary;
+  color: var(--primary-0);
 }
 
 .accent {
-  color: Colors.$accent;
+  color: var(--accent);
 }
 
 .gold {
-  color: Colors.$gold;
+  color: var(--gold);
 }
 
 .white {
-  color: Colors.$white;
+  color: var(--icon-0);
 }
 
-.dangerous {
-  color: Colors.$dangerous;
+.static-white {
+  color: var(--white);
 
-  &.hovered {
-    color: Colors.$dangerous-dark;
+  &:hover {
+    color: var(--primary-0);
   }
 }
 
+.dangerous {
+  color: var(--dangerous);
+
+  &.hovered {
+    color: var(--dangerous-dark);
+  }
+}
+
+.dangerous-dark {
+  color: var(--dangerous-dark);
+}
+
 .warning {
-  color: Colors.$warning;
+  color: var(--warning);
 }
 
 .success {
-  color: Colors.$success;
+  color: var(--success);
 }
 
 .disabled {
-  color: Colors.$black;
+  color: var(--icon-3);
   pointer-events: none;
   opacity: 0.2;
 }

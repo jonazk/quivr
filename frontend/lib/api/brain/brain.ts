@@ -51,15 +51,6 @@ export const deleteBrain = async (
   await axiosInstance.delete(`/brains/${brainId}/subscription`);
 };
 
-export const getDefaultBrain = async (
-  axiosInstance: AxiosInstance
-): Promise<MinimalBrainForUser | undefined> => {
-  return mapBackendMinimalBrainToMinimalBrain(
-    (await axiosInstance.get<BackendMinimalBrainForUser>(`/brains/default/`))
-      .data
-  );
-};
-
 export const getBrains = async (
   axiosInstance: AxiosInstance
 ): Promise<MinimalBrainForUser[]> => {
@@ -69,7 +60,24 @@ export const getBrains = async (
     )
   ).data;
 
-  return brains.map(mapBackendMinimalBrainToMinimalBrain);
+  const sortedBrains = brains.sort((a, b) => {
+    if (a.brain_type === "model" && b.brain_type !== "model") {
+      return -1;
+    } else if (a.brain_type !== "model" && b.brain_type === "model") {
+      return 1;
+    } else if (
+      a.brain_type === "model" &&
+      b.brain_type === "model" &&
+      a.display_name &&
+      b.display_name
+    ) {
+      return a.display_name.localeCompare(b.display_name);
+    } else {
+      return a.name.localeCompare(b.name);
+    }
+  });
+
+  return sortedBrains.map(mapBackendMinimalBrainToMinimalBrain);
 };
 
 export type Subscription = { email: string; role: BrainRoleType };
@@ -111,13 +119,6 @@ export const updateBrainAccess = async (
     ),
     email: userEmail,
   });
-};
-
-export const setAsDefaultBrain = async (
-  brainId: string,
-  axiosInstance: AxiosInstance
-): Promise<void> => {
-  await axiosInstance.post(`/brains/${brainId}/default`);
 };
 
 export const updateBrain = async (

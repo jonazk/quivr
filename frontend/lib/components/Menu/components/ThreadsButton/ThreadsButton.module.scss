@@ -1,13 +1,12 @@
-@use "@/styles/Colors.module.scss";
-@use "@/styles/ScreenSizes.module.scss";
-@use "@/styles/Spacings.module.scss";
-@use "@/styles/Typography.module.scss";
+@use "styles/ScreenSizes.module.scss";
+@use "styles/Spacings.module.scss";
+@use "styles/Typography.module.scss";
 
 .history_content_wrapper {
   position: relative;
   padding: Spacings.$spacing03;
   padding-top: 0;
-  color: Colors.$dark-grey;
+  color: var(--text-2);
   font-size: Typography.$small;
   max-height: 300px;
   overflow-y: scroll;

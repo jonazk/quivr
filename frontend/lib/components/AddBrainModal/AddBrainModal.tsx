@@ -2,30 +2,39 @@ import { useEffect } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
+import { useFromConnectionsContext } from "@/app/chat/[chatId]/components/ActionsBar/components/KnowledgeToFeed/components/FromConnections/FromConnectionsProvider/hooks/useFromConnectionContext";
 import { Modal } from "@/lib/components/ui/Modal/Modal";
 import { addBrainDefaultValues } from "@/lib/config/defaultBrainConfig";
+import { useBrainContext } from "@/lib/context/BrainProvider/hooks/useBrainContext";
+import { useKnowledgeToFeedContext } from "@/lib/context/KnowledgeToFeedProvider/hooks/useKnowledgeToFeedContext";
 
 import styles from "./AddBrainModal.module.scss";
 import { useBrainCreationContext } from "./brainCreation-provider";
 import { BrainMainInfosStep } from "./components/BrainMainInfosStep/BrainMainInfosStep";
-import { BrainTypeSelectionStep } from "./components/BrainTypeSelectionStep/BrainTypeSelectionStep";
-import { CreateBrainStep } from "./components/CreateBrainStep/CreateBrainStep";
+import { BrainRecapStep } from "./components/BrainRecapStep/BrainRecapStep";
+import { FeedBrainStep } from "./components/FeedBrainStep/FeedBrainStep";
 import { Stepper } from "./components/Stepper/Stepper";
+import { useBrainCreationSteps } from "./hooks/useBrainCreationSteps";
 import { CreateBrainProps } from "./types/types";
 
 export const AddBrainModal = (): JSX.Element => {
   const { t } = useTranslation(["translation", "brain", "config"]);
-
+  const { currentStep, steps } = useBrainCreationSteps();
+  const { setCurrentBrainId } = useBrainContext();
   const {
     isBrainCreationModalOpened,
     setIsBrainCreationModalOpened,
     setCurrentSelectedBrain,
+    setCreating,
   } = useBrainCreationContext();
+  const { setCurrentSyncId, setOpenedConnections } =
+    useFromConnectionsContext();
+  const { removeAllKnowledgeToFeed } = useKnowledgeToFeedContext();
 
   const defaultValues: CreateBrainProps = {
     ...addBrainDefaultValues,
     setDefault: true,
-    brainCreationStep: "BRAIN_TYPE",
+    brainCreationStep: "FIRST_STEP",
   };
 
   const methods = useForm<CreateBrainProps>({
@@ -34,6 +43,14 @@ export const AddBrainModal = (): JSX.Element => {
 
   useEffect(() => {
     setCurrentSelectedBrain(undefined);
+    setCurrentSyncId(undefined);
+    setCreating(false);
+    setOpenedConnections([]);
+    methods.reset(defaultValues);
+    removeAllKnowledgeToFeed();
+    if (isBrainCreationModalOpened) {
+      setCurrentBrainId(null);
+    }
   }, [isBrainCreationModalOpened]);
 
   return (
@@ -43,17 +60,17 @@ export const AddBrainModal = (): JSX.Element => {
         desc={t("newBrainSubtitle", { ns: "brain" })}
         isOpen={isBrainCreationModalOpened}
         setOpen={setIsBrainCreationModalOpened}
-        bigModal={true}
+        size="big"
         CloseTrigger={<div />}
       >
         <div className={styles.add_brain_modal_container}>
           <div className={styles.stepper_container}>
-            <Stepper />
+            <Stepper currentStep={currentStep} steps={steps} />
           </div>
           <div className={styles.content_wrapper}>
-            <BrainTypeSelectionStep />
             <BrainMainInfosStep />
-            <CreateBrainStep />
+            <FeedBrainStep />
+            <BrainRecapStep />
           </div>
         </div>
       </Modal>

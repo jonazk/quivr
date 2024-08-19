@@ -1,5 +1,5 @@
 # Using a slim version for a smaller base image
-FROM python:3.11.6-slim-bullseye@sha256:0c1fbb294096d842ad795ee232d783cab436c90b034210fe894f2bb2f2be7626
+FROM python:3.11.6-slim-bullseye
 
 ARG DEV_MODE
 ENV DEV_MODE=$DEV_MODE
@@ -20,7 +20,7 @@ RUN apt-get clean && apt-get update && apt-get install -y \
     build-essential \
     libtool \
     python-dev \
-    build-essential \
+    wget \
     # Additional dependencies for document handling
     libmagic-dev \
     poppler-utils \
@@ -29,27 +29,55 @@ RUN apt-get clean && apt-get update && apt-get install -y \
     libpq-dev \
     gcc \
     pandoc && \
-    rm -rf /var/lib/apt/lists/* && apt-get clean
+    rm -rf /var/lib/apt/lists/*
+
+
+RUN ARCHITECTURE=$(uname -m) && \
+    if [ "$ARCHITECTURE" = "x86_64" ]; then \
+    wget https://github.com/supabase/cli/releases/download/v1.163.6/supabase_1.163.6_linux_amd64.deb && \
+    dpkg -i supabase_1.163.6_linux_amd64.deb && \
+    rm supabase_1.163.6_linux_amd64.deb; \
+    elif [ "$ARCHITECTURE" = "aarch64" ]; then \
+    wget https://github.com/supabase/cli/releases/download/v1.163.6/supabase_1.163.6_linux_arm64.deb && \
+    dpkg -i supabase_1.163.6_linux_arm64.deb && \
+    rm supabase_1.163.6_linux_arm64.deb; \
+    fi && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN curl -sSL https://install.python-poetry.org | POETRY_HOME=/opt/poetry python && \
+    cd /usr/local/bin && \
+    ln -s /opt/poetry/bin/poetry && \
+    poetry config virtualenvs.create false
+
 
 # Add Rust binaries to the PATH
-ENV PATH="/root/.cargo/bin:${PATH}"
+ENV PATH="/root/.cargo/bin:${PATH}" \
+    POETRY_CACHE_DIR=/tmp/poetry_cache \
+    PYTHONDONTWRITEBYTECODE=1
 
 WORKDIR /code
 
-# Copy just the requirements first
-COPY ./requirements.txt .
+# Copy monorepo dependencies
+# CORE
+COPY core/pyproject.toml core/README.md core/poetry.lock  /code/core/
+COPY core/quivr_core /code/core/quivr_core
+# API
+COPY api/pyproject.toml  api/poetry.lock api/README.md /code/api/
+COPY api/quivr_api /code/api/quivr_api
 
-# Upgrade pip
-RUN pip install --upgrade pip
+COPY ./pyproject.toml ./poetry.lock* /code/
 
-# Increase timeout to wait for the new installation
-RUN pip install --no-cache-dir -r requirements.txt --timeout 20000
+COPY ./ci-migration.sh /code/
 
-RUN if [ "$DEV_MODE" = "true" ]; then pip install --no-cache debugpy --timeout 200; fi
+COPY supabase /code/supabase/
 
-# Copy the rest of the application
-COPY . .
+# Run install
+RUN poetry install --no-root --with dev,test && \
+    playwright install --with-deps && \
+    rm -rf $POETRY_CACHE_DIR
+
+
+ENV PYTHONPATH=/code
+
 
 EXPOSE 5050
-
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "5050", "--workers", "6"]

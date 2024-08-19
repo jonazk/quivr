@@ -1,5 +1,5 @@
-@use "@/styles/Colors.module.scss";
-@use "@/styles/Spacings.module.scss";
+@use "styles/Spacings.module.scss";
+@use "styles/Typography.module.scss";
 
 .text_button_wrapper {
   display: flex;
@@ -7,20 +7,30 @@
   gap: Spacings.$spacing03;
   cursor: pointer;
   background-color: transparent;
-}
 
-.black {
-  color: Colors.$black;
-
-  &.hovered {
-    color: Colors.$primary;
+  &.disabled {
+    pointer-events: none;
+    opacity: 0.5;
   }
-}
 
-.dangerous {
-  color: Colors.$dangerous;
+  &.small {
+    gap: Spacings.$spacing02;
+    font-size: Typography.$tiny;
+  }
 
-  &.hovered {
-    color: Colors.$dangerous-dark;
+  .black {
+    color: var(--text-3);
+
+    &:hover {
+      color: var(--primary-0);
+    }
+  }
+
+  .dangerous {
+    color: var(--dangerous);
+
+    &:hover {
+      color: var(--dangerous-0);
+    }
   }
 }

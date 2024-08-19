@@ -1,23 +1,45 @@
-import { useTranslation } from "react-i18next";
-
 import { StripePricingModal } from "@/lib/components/Stripe";
-import Button from "@/lib/components/ui/Button";
+import { QuivrButton } from "@/lib/components/ui/QuivrButton/QuivrButton";
 import { useUserData } from "@/lib/hooks/useUserData";
 
 const MANAGE_PLAN_URL = process.env.NEXT_PUBLIC_STRIPE_MANAGE_PLAN_URL;
 
-export const StripePricingOrManageButton = (): JSX.Element => {
-  const { t } = useTranslation("monetization");
+type StripePricingModalButtonProps = {
+  small?: boolean;
+};
+
+export const StripePricingOrManageButton = ({
+  small = false,
+}: StripePricingModalButtonProps): JSX.Element => {
   const { userData } = useUserData();
 
   const is_premium = userData?.is_premium ?? false;
   if (is_premium) {
     return (
       <a href={MANAGE_PLAN_URL} target="_blank" rel="noopener">
-        <Button className="w-full">{t("manage_plan")}</Button>
+        <QuivrButton
+          label="Manage my plan"
+          color="gold"
+          iconName="star"
+          small={small}
+        ></QuivrButton>
       </a>
     );
   }
 
-  return <StripePricingModal Trigger={<Button>{t("upgrade")}</Button>} />;
+  return (
+    <StripePricingModal
+      Trigger={
+        <div>
+          <QuivrButton
+            label="Upgrade my plan"
+            color="gold"
+            iconName="star"
+            small={small}
+          ></QuivrButton>
+        </div>
+      }
+      user_email={userData?.email ?? ""}
+    />
+  );
 };

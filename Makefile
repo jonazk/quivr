@@ -1,9 +1,13 @@
 test:
 	pytest backend/
 
+dev-build:
+	DOCKER_BUILDKIT=1 docker compose -f docker-compose.dev.yml build backend-core
+	DOCKER_BUILDKIT=1 docker compose -f docker-compose.dev.yml up --build
+
 dev:
-	docker compose -f docker-compose.dev.yml build backend-core
-	docker compose -f docker-compose.dev.yml up --build
+	DOCKER_BUILDKIT=1 docker compose -f docker-compose.dev.yml up
+
 
 dev-saas:
 	docker compose -f docker-compose-dev-saas-supabase.yml build backend-core
@@ -26,3 +30,9 @@ test-type:
 	else \
 		python -m pyright; \
 	fi
+
+front:
+	cd frontend  && yarn build && yarn start
+
+test:
+	cd backend/core && ./scripts/run_tests.sh

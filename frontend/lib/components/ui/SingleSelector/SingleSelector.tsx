@@ -19,6 +19,7 @@ type SelectProps<T> = {
   selectedOption: SelectOptionProps<T> | undefined;
   placeholder: string;
   iconName: keyof typeof iconList;
+  onBackClick?: () => void;
 };
 
 export const SingleSelector = <T extends string | number | UUID>({
@@ -27,6 +28,7 @@ export const SingleSelector = <T extends string | number | UUID>({
   selectedOption,
   placeholder,
   iconName,
+  onBackClick,
 }: SelectProps<T>): JSX.Element => {
   const [search, setSearch] = useState<string>("");
   const [folded, setFolded] = useState<boolean>(true);
@@ -60,23 +62,32 @@ export const SingleSelector = <T extends string | number | UUID>({
           className={styles.left}
           onClick={() => {
             setFolded(!folded);
+            if (!folded) {
+              onBackClick?.();
+            }
           }}
         >
           <div className={styles.icon}>
             <Icon
-              name={folded ? "chevronDown" : "chevronRight"}
+              name={
+                folded ? "chevronDown" : onBackClick ? "back" : "chevronRight"
+              }
               size="normal"
               color="black"
             />
           </div>
-          <div
-            className={`
+          {(folded || selectedOption) && (
+            <div
+              className={`
             ${styles.label} 
             ${!selectedOption ? styles.not_set : ""}
             `}
-          >
-            {selectedOption?.label ?? placeholder}
-          </div>
+            >
+              <span className={styles.label_text}>
+                {selectedOption?.label ?? placeholder}
+              </span>
+            </div>
+          )}
         </div>
         {!folded && (
           <div className={styles.right}>
@@ -100,7 +111,7 @@ export const SingleSelector = <T extends string | number | UUID>({
               }}
             >
               <div className={styles.icon}>
-                <Icon name={iconName} size="normal" color="black" />
+                <Icon name={iconName} size="small" color="black" />
               </div>
               <span className={styles.option_name}>{option.label}</span>
             </div>

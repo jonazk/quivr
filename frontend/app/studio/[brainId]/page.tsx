@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-import PageHeader from "@/lib/components/PageHeader/PageHeader";
+import { PageHeader } from "@/lib/components/PageHeader/PageHeader";
 import { UploadDocumentModal } from "@/lib/components/UploadDocumentModal/UploadDocumentModal";
 import { useBrainContext } from "@/lib/context/BrainProvider/hooks/useBrainContext";
 import { useKnowledgeToFeedContext } from "@/lib/context/KnowledgeToFeedProvider/hooks/useKnowledgeToFeedContext";
@@ -42,7 +42,7 @@ const BrainsManagement = (): JSX.Element => {
       hidden: !isOwnedByCurrentUser || !brain?.max_files,
     },
     {
-      label: "Delete brain",
+      label: isOwnedByCurrentUser ? "Delete Brain" : "Unsubscribe from Brain",
       color: "dangerous",
       onClick: () => {
         setIsDeleteOrUnsubscribeModalOpened(true);

@@ -43,6 +43,7 @@ const fileTypeIcons: Record<SupportedFileExtensions, IconType> = {
   ipynb: BsFiletypePy,
   py: BsFiletypePy,
   telegram: BsFiletypeDocx,
+  bib: FaFile,
 };
 
 export const getFileIcon = (fileName: string): JSX.Element => {
@@ -50,5 +51,5 @@ export const getFileIcon = (fileName: string): JSX.Element => {
 
   const Icon = fileType !== undefined ? fileTypeIcons[fileType] : FaFile;
 
-  return <Icon width={16} />;
+  return <Icon width={24} height={24} />;
 };

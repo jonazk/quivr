@@ -21,7 +21,15 @@ export type ChatMessage = {
   brain_id?: UUID;
   metadata?: {
     sources?: Source[];
+    thoughts?: string;
+    followup_questions?: string[];
+    metadata_model?: {
+      display_name: string;
+      image_url: string;
+      brain_id: UUID;
+    };
   };
+  thumbs?: boolean;
 };
 
 type NotificationStatus = "Pending" | "Done";

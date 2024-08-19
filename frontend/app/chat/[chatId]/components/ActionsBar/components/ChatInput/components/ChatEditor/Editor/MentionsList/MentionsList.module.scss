@@ -1,22 +1,24 @@
-@use "@/styles/Colors.module.scss";
-@use "@/styles/Radius.module.scss";
-@use "@/styles/Spacings.module.scss";
+@use "styles/BoxShadow.module.scss";
+@use "styles/Radius.module.scss";
+@use "styles/Spacings.module.scss";
 
 .mentions_list_wrapper {
   display: flex;
-  background-color: Colors.$white;
+  background-color: var(--background-0);
   flex-direction: column;
   padding: Spacings.$spacing03;
-  box-shadow: 0 1px 2px rgb(0, 0, 0, 0.25);
+  box-shadow: BoxShadow.$medium;
+  border: 1px solid var(--border-1);
   border-radius: Radius.$normal;
-  gap: Spacings.$spacing03;
+  gap: Spacings.$spacing02;
   max-width: 300px;
+  min-width: 200px;
   overflow: scroll;
   max-height: 300px;
+  overflow-y: scroll;
 
   .mentions_list {
     display: flex;
     flex-direction: column;
-    gap: Spacings.$spacing02;
   }
 }
